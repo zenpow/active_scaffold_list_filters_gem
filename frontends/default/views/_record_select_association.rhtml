@@ -1,5 +1,5 @@
 <%= submit_tag "Set", :onclick =>
-"$('#{loading_indicator_id(:action => :table)}').style.visibility = 'visible';" %> 
+"$('#{loading_indicator_id(:action => :collection)}').style.visibility = 'visible';" %> 
 <%
   klass = filter.get_column(filter.name).association.klass
   controller_path = active_scaffold_controller_for(klass).controller_path

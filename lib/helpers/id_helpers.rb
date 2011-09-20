@@ -8,5 +8,4 @@ module Helpers::IdHelpers
   def list_filter_input_name(filter)
     "list_filter[#{filter.filter_type}][#{filter.name}]"
   end
-
 end

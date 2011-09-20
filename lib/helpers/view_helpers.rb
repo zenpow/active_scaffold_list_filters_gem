@@ -1,3 +1,6 @@
-module Helpers::ViewHelpers
-  include Helpers::IdHelpers
+module ActiveScaffoldListFilter
+  module ViewHelpers
+    include Helpers::IdHelpers
+  end
 end
+
