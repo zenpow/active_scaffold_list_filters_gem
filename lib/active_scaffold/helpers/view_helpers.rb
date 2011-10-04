@@ -4,8 +4,9 @@ module ActiveScaffold
     def active_scaffold_includes_with_list_filter(frontend = :default)
       css = stylesheet_link_tag(ActiveScaffold::Config::Core.asset_path('list_filter-stylesheet.css', frontend))
       ie_css = stylesheet_link_tag(ActiveScaffold::Config::Core.asset_path("list_filter-stylesheet-ie.css", frontend))
-      active_scaffold_includes_without_list_filter + "\n" + css + "\n<!--[if IE]>" + ie_css + "<![endif]-->\n"
+      active_scaffold_includes_without_list_filter + "\n" + css + "\n<!--[if IE]>".html_safe + ie_css + "<![endif]-->\n".html_safe
     end
-    # alias_method_chain :active_scaffold_includes, :list_filter
+    
+    alias_method_chain :active_scaffold_includes, :list_filter
   end
 end
