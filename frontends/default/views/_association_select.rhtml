@@ -11,6 +11,7 @@
   end
     
   associated_values = associated_objs.map{|u| u.send(filter.association_name) }.flatten.uniq
+  # associated_values = filter.core.model.all.map{|vc| vc.send(filter.association_name) }.flatten.uniq
   associated_values.delete(nil)
   associated_values.delete([])
 	associated_values.sort!{|a,b| a.to_label <=> b.to_label }
