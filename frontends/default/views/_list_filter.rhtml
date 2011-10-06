@@ -43,4 +43,7 @@
 
 <script type="text/javascript">
   init_filter_accordions();
+
+  // calendar date select hack so that form is auto submitted on change by defining onsubmit() (previously undefined) to map to form submission
+  $('as_teams-list_filter--form').onsubmit = function() { this.request() }
 </script>
