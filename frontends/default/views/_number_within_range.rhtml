@@ -6,9 +6,9 @@
   	<div>
   	  Between
     	<%= text_field_tag(list_filter_input_name(filter) + "[]",
-						"#{session_value}", :onkeypress => "if(event.keyCode==13){this.form.onsubmit(); return false;}" ) %>
+						"#{session_value}" ) %>
 			and
 			<%= text_field_tag(list_filter_input_name(filter) + "[]",
-						"#{session_value}", :onkeypress => "if(event.keyCode==13){this.form.onsubmit(); return false;}" ) %>
+						"#{session_value}") %>
 			usage points
 	</div>

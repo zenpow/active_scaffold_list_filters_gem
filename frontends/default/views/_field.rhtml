@@ -4,7 +4,7 @@
 	session_value = filter.params[0] unless filter.params.nil?
 -%>
   	<div>
-			<%= content_tag(:label, "#{filter.label}&nbsp;" +
+			<%= content_tag(:label, "#{filter.label}&nbsp;".html_safe +
 					text_field_tag(list_filter_input_name(filter) + "[]",
-						"#{session_value}", :onkeypress => "if(event.keyCode==13){this.form.onsubmit(); return false;})) %>
+						"#{session_value}" ) ) %>
 		</div>
