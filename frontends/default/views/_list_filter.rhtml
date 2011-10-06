@@ -35,6 +35,7 @@
   		<% end %>	
   </div>
 
+  <%= submit_tag "Filter" -%>
   <%= link_to as_(:reset), url_for(url_options.merge(:list_filter_input => 'reset')), :class => 'as_cancel', :remote => true, :onclick => "$('#{list_filter_form_id}').up('div').remove();" %>
 
   <%= loading_indicator_tag(:action => :list_filter) %>
