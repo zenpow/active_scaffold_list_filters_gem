@@ -17,6 +17,6 @@
     	<div>
 				<%= content_tag(:label, 
 						check_box_tag(list_filter_input_name(filter) + "[]",
-							"#{value.id}",session_value) + "&nbsp;#{value.to_label}") %>
+							"#{value.id}",session_value) + "&nbsp;#{value.to_label}".html_safe) %>
 			</div>
 <% end -%>

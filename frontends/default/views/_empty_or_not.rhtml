@@ -7,9 +7,9 @@
 -%>
 
   	<div>
-    	<%= content_tag(:label, radio_button_tag(list_filter_input_name(filter), "", true)  + "&nbsp;#{options_labels[0]}" ) %>
+    	<%= content_tag(:label, radio_button_tag(list_filter_input_name(filter), "", true)  + "&nbsp;#{options_labels[0]}".html_safe ) %>
   	    
   	    <% values.each do |label_and_value| -%>
-           <%= content_tag(:label, radio_button_tag(list_filter_input_name(filter), label_and_value[1]) + "&nbsp;#{label_and_value[0]}") %>
+           <%= content_tag(:label, radio_button_tag(list_filter_input_name(filter), label_and_value[1]) + "&nbsp;#{label_and_value[0]}".html_safe) %>
 		<% end -%>
 	</div>

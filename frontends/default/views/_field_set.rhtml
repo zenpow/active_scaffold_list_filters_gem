@@ -7,6 +7,6 @@
     	<div>
 				<%= content_tag(:label, 
 						check_box_tag(list_filter_input_name(filter) + "[]",
-							"#{v}",session_value) + "&nbsp;#{v}") %>
+							"#{v}",session_value) + "&nbsp;#{v}".html_safe) %>
 			</div>
 <% end %>
