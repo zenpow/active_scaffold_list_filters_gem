@@ -17,6 +17,7 @@ module ActiveScaffold::DataStructures
         setter = "#{k}="
         self.send(setter, v) if self.respond_to? setter
       end
+      @tab_label = @label unless options[:tab_label]
     end
 
     attr_reader :filter_type
@@ -44,9 +45,13 @@ module ActiveScaffold::DataStructures
     end
 
     # what string to use to represent this action
-    attr_writer :label
+    attr_writer :label, :tab_label
     def label
       as_(@label)
+    end
+
+    def tab_label
+      as_(@tab_label)
     end
 
   end
