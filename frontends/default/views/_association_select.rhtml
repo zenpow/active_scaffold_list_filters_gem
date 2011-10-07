@@ -15,9 +15,8 @@
   associated_values.delete(nil)
   associated_values.delete([])
 	associated_values.sort!{|a,b| a.to_label <=> b.to_label }
-    
 -%>
 
 <div>
-<%= select_tag list_filter_input_name(filter), "<option></option>"+options_from_collection_for_select(associated_values, 'id', 'to_label') %>    
+<%= select_tag list_filter_input_name(filter), "<option></option>".html_safe+options_from_collection_for_select(associated_values, 'id', 'to_label'), :onchange => "this.form.request();" %>    
 </div>
