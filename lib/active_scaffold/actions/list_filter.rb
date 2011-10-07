@@ -71,7 +71,7 @@ module ActiveScaffold::Actions
 
         # set our joins
         joins = find_options[:include] unless find_options.nil?
-        self.joins_for_finder.concat [joins].flatten.uniq.compact unless joins.nil?
+        self.active_scaffold_includes = [joins].flatten.uniq.compact unless joins.nil?
 
         active_scaffold_config.list.user.page = nil
         verbose_filter << "#{filter.label} (#{filter.verbose})" unless filter.verbose.nil?
