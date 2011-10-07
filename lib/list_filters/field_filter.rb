@@ -6,7 +6,7 @@ class ListFilters::FieldFilter < ActiveScaffold::DataStructures::ListFilter
       if params[0].blank?
         options[:conditions] = nil
       else
-        options[:conditions] = ["#{field_name.to_s} = (?)", params[0]]
+        options[:conditions] = ["#{self.core.model.table_name}.#{field_name.to_s} = (?)", params[0]]
       end
       return options
     end unless params.blank? || params[0].blank?
