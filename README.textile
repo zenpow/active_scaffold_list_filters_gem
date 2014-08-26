@@ -1,4 +1,8 @@
-Git repo at https://github.com/zaczheng/active_scaffold_list_filters
+h2. Changes
+  
+  * Added CSV export on filtered results
+  * Added many more filters
+  * Assets are not included automatically (commented out at lib/active_scaffold/helpers/view_helpers.rb:11)
 
 h2. ActiveScaffoldListFilters
 
