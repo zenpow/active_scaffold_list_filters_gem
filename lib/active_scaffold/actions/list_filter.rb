@@ -111,6 +111,7 @@ module ActiveScaffold::Actions
         # set our conditions
         find_options = filter.find_options
         conditions = find_options[:conditions] unless find_options.nil?        
+
         #self.active_scaffold_conditions = merge_conditions(self.active_scaffold_conditions, conditions)
         self.active_scaffold_conditions = [self.active_scaffold_conditions, conditions]
 
