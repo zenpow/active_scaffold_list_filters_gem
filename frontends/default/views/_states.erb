@@ -1,0 +1,13 @@
+<%
+	session_value = nil
+	session_value = filter_session unless filter_session.nil?
+	session_value = filter.params[0] unless filter.params.nil?
+-%>
+
+  	<div>
+    	<%= content_tag(:label, radio_button_tag(list_filter_input_name(filter), "", true)  + "&nbsp;None".html_safe ) %>
+  	    
+  	    <% filter.core.model.aasm_states.each do |state| -%>
+           <%= content_tag(:label, radio_button_tag(list_filter_input_name(filter), state.to_s, false ) + "&nbsp;#{state.to_s.humanize}".html_safe) %>
+		<% end -%>
+	</div>
