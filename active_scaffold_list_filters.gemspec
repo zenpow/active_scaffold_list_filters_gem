@@ -23,5 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
 
   spec.add_dependency "rails"
+  spec.add_dependency "active_scaffold"
 end
 
