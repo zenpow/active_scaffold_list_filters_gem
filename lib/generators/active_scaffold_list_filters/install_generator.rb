@@ -5,7 +5,14 @@ module ActiveScaffoldListFilters
     desc "Installation for ActiveScaffoldListFilters"
 
     def install
-      FileUtils.cp_r("app/views/", Rails.root.join("app/views/").to_s)
+      gem_dir     = File.dirname(__FILE__)
+      source      = "#{gem_dir}/../../../app/views/active_scaffold_list_filters/*.*"
+      destination = Rails.root.join("app/views/active_scaffold_list_filters")
+
+      FileUtils.mkdir(destination) unless File.exist?(destination)
+      FileUtils.cp_r Dir.glob(source), destination
+
+      puts "ActiveScaffoldListFilter views are now copied"
     end
   end
 end
