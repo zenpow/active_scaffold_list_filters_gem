@@ -1,5 +1,5 @@
 h2. Changes
-  
+
   * Added CSV export on filtered results
   * Added many more filters
   * Assets are not included automatically (commented out at lib/active_scaffold/helpers/view_helpers.rb:11)
@@ -7,9 +7,9 @@ h2. Changes
 h2. ActiveScaffoldListFilters
 
 Copyright (c) 2008 Tys von Gaza (tys@gotoybox.com)
- 
+
 MIT License use as you wish, see MIT-LICENSE file
- 
+
 Version 0.5
 
 "Preview":http://farm4.static.flickr.com/3402/3257194048_1b75c0b966_o.png
@@ -91,7 +91,7 @@ It is simple to create your own filter.
       options[:include] = assocation_name
       options[:conditions] = ["#{assocation.klass.table_name}.id IN (?)", params]
 
-      return options           
+      return options
   	end unless params.nil? || params.empty?
   end
 

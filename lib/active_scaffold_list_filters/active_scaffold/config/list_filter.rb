@@ -1,5 +1,5 @@
 module ActiveScaffold::Config
-  class ListFilter < Base  
+  class ListFilter < Base
     self.crud_type = :read
 
     def initialize(core_config)

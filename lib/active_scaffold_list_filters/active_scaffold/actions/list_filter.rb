@@ -9,7 +9,8 @@ module ActiveScaffold::Actions
       end
 
       # Add default frontend path
-      active_scaffold_default_frontend_path = File.join(Rails.root, 'vendor', 'plugins', File.expand_path(__FILE__).match(/vendor\/plugins\/([^\/]*)/)[1], 'frontends', 'default' , 'views')
+      active_scaffold_default_frontend_path = File.join(File.dirname(__FILE__), "../../../../app/views/active_scaffold_list_filters")
+      #active_scaffold_default_frontend_path = File.join(Rails.root, "app/views/active_scaffold_list_filters")
       base.add_active_scaffold_path(active_scaffold_default_frontend_path)
 
       base.before_filter :list_filter_authorized?, :only => [:list_filter, :export]
@@ -110,7 +111,7 @@ module ActiveScaffold::Actions
 
         # set our conditions
         find_options = filter.find_options
-        conditions = find_options[:conditions] unless find_options.nil?        
+        conditions = find_options[:conditions] unless find_options.nil?
 
         #self.active_scaffold_conditions = merge_conditions(self.active_scaffold_conditions, conditions)
         self.active_scaffold_conditions = [self.active_scaffold_conditions, conditions]
