@@ -2,12 +2,12 @@
    ==================================== */
 .active-scaffold-header div.actions a.list_filter {
 	background-image: none;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/active_scaffold/default/filter.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/active_scaffold/default/filter.png', sizingMethod='crop');
 }
 =======
 /* IE hacks
    ==================================== */
 .active-scaffold-header div.actions a.list_filter {
 	background-image: none;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/active_scaffold/default/filter.png', sizingMethod='crop');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/active_scaffold/default/filter.png', sizingMethod='crop');
 }
