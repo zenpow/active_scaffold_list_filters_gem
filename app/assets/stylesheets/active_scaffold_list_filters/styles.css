@@ -1,5 +1,5 @@
 .active-scaffold-header div.actions a.list_filter {
-  background-image: url(../images/active_scaffold/default/filter.png);
+  background-image: url(filter.png);
   background-position: 1px 50%;
   background-repeat: no-repeat;
   padding-left: 19px;
@@ -47,7 +47,7 @@
 	width: 22px;
 	overflow: hidden;
 
-	background-image: url(../images/active_scaffold/default/filter_handle.png);
+	background-image: url(filter_handle.png);
 
 	border-right: solid 1px #000;
 
@@ -55,7 +55,7 @@
 }
 .filter_accordion .filter_handle.active
 {
-	background-image: url(../images/active_scaffold/default/filter_handle_active.png);
+	background-image: url(filter_handle_active.png);
 }
 
 .filter_accordion .filter_handle .filter_trigger
