@@ -5,7 +5,7 @@ module ActiveScaffoldListFilters
     desc "Uninstallation for ActiveScaffoldListFilters"
 
     def uninstall
-      destination = Rails.root.join("app/views/active_scaffold_list_filters")
+      destination = Rails.root.join("app/views/active_scaffold_overrides")
 
       FileUtils.rmtree(destination)
 

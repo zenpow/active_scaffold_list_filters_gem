@@ -10,7 +10,6 @@ module ActiveScaffold::Actions
 
       # Add default frontend path
       active_scaffold_default_frontend_path = File.join(File.dirname(__FILE__), "../../../../app/views/")
-      #active_scaffold_default_frontend_path = File.join(Rails.root, "app/views/active_scaffold_list_filters")
       base.add_active_scaffold_path(active_scaffold_default_frontend_path)
 
       base.before_filter :list_filter_authorized?, :only => [:list_filter, :export]

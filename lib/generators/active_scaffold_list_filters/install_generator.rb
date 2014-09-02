@@ -6,8 +6,8 @@ module ActiveScaffoldListFilters
 
     def install
       gem_dir     = File.dirname(__FILE__)
-      source      = "#{gem_dir}/../../../app/views/active_scaffold_list_filters/*.*"
-      destination = Rails.root.join("app/views/active_scaffold_list_filters")
+      source      = "#{gem_dir}/../../../app/views/active_scaffold_overrides/*.*"
+      destination = Rails.root.join("app/views/active_scaffold_overrides")
 
       FileUtils.mkdir(destination) unless File.exist?(destination)
       FileUtils.cp_r Dir.glob(source), destination
