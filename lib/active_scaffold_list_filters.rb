@@ -26,12 +26,12 @@ require 'active_scaffold_list_filters/list_filters/states_filter'
 
 module ActiveScaffoldListFilters
 
-  if Rails::VERSION::MAJOR <= 3
-    raise "This version of ActiveScaffoldListFilters requires Rails 3.0 or higher.  Please use an earlier version."
-  else
+  if Rails::VERSION::MAJOR >= 3
     ActiveScaffold::Config::Core.send(:include, Extensions::Core)
     ActionDispatch::Routing::ACTIVE_SCAFFOLD_CORE_ROUTING[:collection][:export] = :get
     ActionView::Base.send(:include, ActiveScaffoldListFilter::ViewHelpers)
+  else
+    raise "This version of ActiveScaffoldListFilters requires Rails 3.0 or higher.  Please use an earlier version."
   end
 
 end
