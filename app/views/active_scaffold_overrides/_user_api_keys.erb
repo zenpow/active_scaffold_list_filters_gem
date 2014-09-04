@@ -1,0 +1,18 @@
+<%
+	session_value = nil
+	session_value = filter_session unless filter_session.nil?
+	session_value = filter.params[0] unless filter.params.nil?
+-%>
+    
+<div class="active-scaffold-filter-block">	
+  <%= content_tag(:label, "API key&nbsp; ".html_safe +
+		text_field_tag(list_filter_input_name(filter) + "[key]",
+			"#{session_value}")) %>
+</div>
+
+<div class="active-scaffold-filter-block">
+  Show only users with API keys:
+  <!-- onclick form submission doesn't work -->
+  <%= content_tag(:label, radio_button_tag(list_filter_input_name(filter) + "[exists]", "", true)  + "&nbsp;No".html_safe ) %>
+  <%= content_tag(:label, radio_button_tag(list_filter_input_name(filter) + "[exists]", 1 )  + "&nbsp;Yes".html_safe) %>
+</div>

@@ -1,0 +1,18 @@
+<%
+	session_value = nil
+	session_value = filter_session unless filter_session.nil?
+	session_value = filter.params[0] unless filter.params.nil?
+	
+	packages = SubscriptionPlan.subscribed_plans
+-%>
+
+<% packages.each do |value| -%>
+	<%
+		session_value = nil
+		session_value = (filter_session.include? value.id.to_s) unless filter_session.nil?
+		session_value = (filter.params.include? value.id.to_s) unless filter.params.nil?
+	-%>
+				<%= content_tag(:label, 
+						check_box_tag(list_filter_input_name(filter) + "[]",
+							"#{value.id}", session_value) + "&nbsp;#{value.to_label}".html_safe) %>
+<% end -%>
