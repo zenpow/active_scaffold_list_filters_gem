@@ -1,7 +1,7 @@
 <%
 	ar_class = filter.association_class
 	association = filter.core.model.reflect_on_association(filter.association_name)
-  assocation_key = association.primary_key_name
+  assocation_key = association.foreign_key
 
   if association.macro == :belongs_to
     associated_objs = filter.core.model.find(:all, :include => filter.association_name, :select => "distinct #{assocation_key}", :conditions => "#{assocation_key} is not null")
