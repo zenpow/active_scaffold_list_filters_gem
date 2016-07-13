@@ -115,10 +115,6 @@ module ActiveScaffold::Actions
         #self.active_scaffold_conditions = merge_conditions(self.active_scaffold_conditions, conditions)
         self.active_scaffold_conditions = [self.active_scaffold_conditions, conditions]
 
-        # set our joins
-        joins = find_options[:include] unless find_options.nil?
-        self.active_scaffold_includes.concat [joins].flatten.uniq.compact unless joins.nil?
-
         active_scaffold_config.list.user.page = nil
         verbose_filter << "#{filter.label} (#{filter.verbose})" unless filter.verbose.nil?
         @filtered = !filter.verbose.nil?
