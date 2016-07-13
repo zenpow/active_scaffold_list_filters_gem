@@ -86,7 +86,7 @@ module ActiveScaffold::Actions
       filter_config = active_scaffold_config.list_filter
       respond_to do |wants|
         wants.html do
-          if successful?
+          if successful? && (@record || @records)
             render(:partial => 'list_filter', :locals => { :filter_config => filter_config }, :layout => true)
           else
             return_to_main
