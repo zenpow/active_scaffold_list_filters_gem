@@ -1,0 +1,9 @@
+<%
+	session_value = nil
+	session_value = filter_session unless filter_session.nil?
+	session_value = filter.params[0] unless filter.params.nil?
+  options = filter.options[:options]
+-%>
+<div>
+  <%= select_tag list_filter_input_name(filter), options_for_select(options), include_blank: true %>
+</div>
