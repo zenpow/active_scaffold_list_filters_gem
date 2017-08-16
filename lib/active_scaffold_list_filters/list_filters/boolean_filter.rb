@@ -6,7 +6,7 @@ class ListFilters::BooleanFilter < ActiveScaffold::DataStructures::ListFilter
       if params[0].blank?
         options[:conditions] = nil
       else
-        true_or_false = ActiveRecord::ConnectionAdapters::Column.value_to_boolean(params)
+        true_or_false = ActiveRecord::Type::Boolean.new.type_cast_from_database(params)
         options[:conditions] = "#{field_name.to_s} is #{true_or_false}"
       end
       return options
@@ -15,7 +15,7 @@ class ListFilters::BooleanFilter < ActiveScaffold::DataStructures::ListFilter
   
   def verbose
     begin
-      return ActiveRecord::ConnectionAdapters::Column.value_to_boolean(params).yes_or_no unless params.blank?
+      return ActiveRecord::Type::Boolean.new.type_cast_from_database(params).yes_or_no unless params.blank?
     end unless params.blank?
   end
   
