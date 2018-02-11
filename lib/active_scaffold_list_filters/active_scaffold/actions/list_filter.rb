@@ -32,22 +32,22 @@ module ActiveScaffold::Actions
       page = find_page
       records = page.items
 
-      if records.empty?
-        export_columns = []
-      else
-        record_class = records.first.class
+      # if records.empty?
+      #   export_columns = []
+      # else
+      #   record_class = records.first.class
 
-        export_columns =  if record_class.respond_to?(:export_column_names)
-          record_class.export_column_names
-        else
-          record_class.column_names
-        end
-      end
+      #   export_columns =  if record_class.respond_to?(:export_column_names)
+      #     record_class.export_column_names
+      #   else
+      #     record_class.column_names
+      #   end
+      # end
 
-      export_as_csv(export_columns, records)
+      export_as_csv(records)
     end
 
-    def export_as_csv(columns, records)
+    def export_as_csv(records)
       fcsv_options = {}
 
       csv_lib = Object.const_defined?('CSV') ? CSV : FasterCSV
