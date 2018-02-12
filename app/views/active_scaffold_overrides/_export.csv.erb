@@ -1,9 +1,0 @@
-<%= csv_lib.generate_line(list_columns.map(&:label)).html_safe.sub(/^ID/, 'id') -%>
-<% records.each do |record| %>
-  <% columns =  list_columns.map do |column| %>
-    <% column.options[:for_csv] = true %>
-    <% get_column_value(record, column) %>
-  <% end %>
-  <% data = csv_lib.generate_line(columns) %>
-  <%= data.gsub(/&nbsp;/, '').html_safe -%>
-<% end %>
