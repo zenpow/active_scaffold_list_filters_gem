@@ -28,30 +28,36 @@ module ActiveScaffold::Actions
     def export
       require 'csv' if RUBY_VERSION >= "1.9"
 
-      set_includes_for_list_columns
       page = find_page
       records = page.items
 
-      # if records.empty?
-      #   export_columns = []
-      # else
-      #   record_class = records.first.class
+      if records.empty?
+        export_columns = []
+      else
+        record_class = records.first.class
 
-      #   export_columns =  if record_class.respond_to?(:export_column_names)
-      #     record_class.export_column_names
-      #   else
-      #     record_class.column_names
-      #   end
-      # end
+        export_columns =  if record_class.respond_to?(:export_column_names)
+          record_class.export_column_names
+        else
+          record_class.column_names
+        end
+      end
 
-      export_as_csv(records)
+      export_as_csv(export_columns, records)
     end
 
-    def export_as_csv(records)
+    def export_as_csv(columns, records)
       fcsv_options = {}
 
       csv_lib = Object.const_defined?('CSV') ? CSV : FasterCSV
-      data = render_to_string( :partial => 'export', locals: { list_columns: list_columns, records: records, csv_lib: csv_lib }, :layout => false, :formats => [:csv])
+      data = csv_lib.generate(fcsv_options) do |csv|
+        csv << columns
+        records.each do |record|
+          csv << columns.collect { |column|
+            record.send(column)
+          }
+        end
+      end
       send_data(data, :type => Mime::CSV, :filename => "export.csv")
     end
 
