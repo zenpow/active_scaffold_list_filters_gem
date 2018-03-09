@@ -28,7 +28,7 @@ module ActiveScaffold::Actions
     def export
       require 'csv' if RUBY_VERSION >= "1.9"
 
-      set_includes_for_list_columns
+      set_includes_for_columns
       page = find_page
       records = page.items
 
