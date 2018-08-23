@@ -12,9 +12,9 @@ module ActiveScaffold::Actions
       active_scaffold_default_frontend_path = File.join(File.dirname(__FILE__), "../../../../app/views/")
       base.add_active_scaffold_path(active_scaffold_default_frontend_path)
 
-      base.before_filter :list_filter_authorized?, :only => [:list_filter, :export]
-      base.before_filter :init_filter_session_var
-      base.before_filter :do_list_filter
+      base.before_action :list_filter_authorized?, :only => [:list_filter, :export]
+      base.before_action :init_filter_session_var
+      base.before_action :do_list_filter
     end
 
     def index
