@@ -2,7 +2,9 @@
 <% records.each do |record| %>
   <% columns =  list_columns.map do |column| %>
     <% column.options[:for_csv] = true %>
-    <% get_column_value(record, column) %>
+    <% column_value = get_column_value(record, column) %>
+    <% column.options[:for_csv] = false %>
+    <% column_value %>
   <% end %>
   <% data = csv_lib.generate_line(columns) %>
   <%= data.gsub(/&nbsp;/, '').html_safe -%>
