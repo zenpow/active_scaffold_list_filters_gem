@@ -1,11 +1,16 @@
 <%= csv_lib.generate_line(list_columns.map(&:label)).html_safe.sub(/^ID/, 'id') -%>
 <% records.each do |record| %>
-  <% columns =  list_columns.map do |column| %>
-    <% column.options[:for_csv] = true %>
-    <% column_value = get_column_value(record, column) %>
-    <% column.options[:for_csv] = false %>
-    <% column_value %>
-  <% end %>
-  <% data = csv_lib.generate_line(columns) %>
+  <%
+    columns = list_columns.map do |column|
+      column.options[:for_csv] = true
+      begin
+        column_value = get_column_value(record, column)
+      ensure
+        column.options[:for_csv] = false
+      end
+      column_value
+    end
+    data = csv_lib.generate_line(columns)
+  %>
   <%= data.gsub(/&nbsp;/, '').html_safe -%>
 <% end %>
